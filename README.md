@@ -1,2 +1,2 @@
 # Megatron
-A simple c++ game engine 
+A simple c++ game engine.
