@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+# Ignore any build files
+build/*
+# Keep the gitkeep file to preserve dir structure
+!build/.gitkeep
