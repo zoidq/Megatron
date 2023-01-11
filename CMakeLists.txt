@@ -1,6 +1,7 @@
-cmake_minimum_required ( VERSION 3.0 )
-#cmake_minimum_required ( VERSION 2.8 FATAL_ERROR )
+cmake_minimum_required ( VERSION 3.25.1 FATAL_ERROR )
 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(SDL2 REQUIRED sdl2)
 
 project ( megatron )
 set( EXECUTABLE_NAME "megatr0n")
@@ -21,7 +22,6 @@ set ( PATCH_VERSION 0 )
 # Locate SDL2 and include it
 set ( CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules/" )
 find_package ( SDL2 REQUIRED )
-include_directories( ${SDL2_INCLUDE_DIR} )
 
 
 # Send the variables (version number) to the source code header
@@ -46,3 +46,5 @@ set ( LIBS
 add_executable( ${EXECUTABLE_NAME} ${SRC_FILES} )
 
 target_link_libraries ( ${EXECUTABLE_NAME} PRIVATE ${LIBS} )
+target_include_directories( ${EXECUTABLE_NAME} PRIVATE ${SDL2_INCLUDE_DIR} )
+target_compile_options( ${EXECUTABLE_NAME} PRIVATE ${SDL2_CFLAGS_OTHER})
