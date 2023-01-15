@@ -1,39 +1,41 @@
 #include <iostream>
+
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include "RenderWindow.hpp"
 
 int main()
 {
     std::cout << "Starting.." << std::endl;
 
-    if(SDL_Init(SDL_INIT_VIDEO) < 0)
+    if (0 < SDL_Init(SDL_INIT_VIDEO))
     {
         std::cout << "Failed to initialize the SDL2 library\n";
         return -1;
     }
 
-    SDL_Window *window = SDL_CreateWindow("SDL2 Window",
-            SDL_WINDOWPOS_CENTERED,
-            SDL_WINDOWPOS_CENTERED,
-            680, 480,
-            0);
-
-    if(!window)
+	if (!IMG_Init(IMG_INIT_PNG))
     {
-        std::cout << "Failed to create window\n";
-        return -1;
+        std::cout << "SDL2 image failed to initialize.\n";
     }
 
-    SDL_Surface *window_surface = SDL_GetWindowSurface(window);
+    RenderWindow window("megatr0n", 800, 600);
+    
+    bool isGameRunning = true;
+    SDL_Event event;
 
-    if(!window_surface)
+    while (isGameRunning)
     {
-        std::cout << "Failed to get the surface from the window\n";
-        return -1;
+        while (SDL_PollEvent(&event))
+        {
+            if (event.type == SDL_QUIT)
+            {
+                isGameRunning = false;
+            }
+        }
     }
 
-    SDL_UpdateWindowSurface(window);
-
-    SDL_Delay(5000);
-
+    window.~RenderWindow();
+    SDL_Quit();
     return 0;
 }

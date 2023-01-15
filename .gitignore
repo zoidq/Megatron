@@ -31,6 +31,9 @@
 *.out
 *.app
 
+# clangd cache
+.cache/*
+
 # Ignore any build files
 build/*
 # Keep the gitkeep file to preserve dir structure
