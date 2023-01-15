@@ -20,6 +20,7 @@ int main()
     }
 
     RenderWindow window("megatr0n", 800, 600);
+    SDL_Texture* logo = window.loadTexture("../res/20363253.png");
     
     bool isGameRunning = true;
     SDL_Event event;
@@ -33,6 +34,10 @@ int main()
                 isGameRunning = false;
             }
         }
+
+        window.clear();
+        window.render(logo);
+        window.display();
     }
 
     window.~RenderWindow();
