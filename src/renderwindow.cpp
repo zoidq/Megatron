@@ -1,6 +1,6 @@
 #include <iostream>
+#include <SDL_image.h>
 #include "RenderWindow.hpp"
-#include "SDL_image.h"
 
 RenderWindow::RenderWindow(const char* p_title, int p_width, int p_height)
     :window(NULL), renderer(NULL)
