@@ -42,5 +42,6 @@ int main()
 
     window.~RenderWindow();
     SDL_Quit();
+
     return 0;
 }

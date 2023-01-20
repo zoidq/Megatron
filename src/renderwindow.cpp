@@ -1,8 +1,6 @@
 #include <iostream>
 #include "RenderWindow.hpp"
 #include "SDL_image.h"
-#include "SDL_render.h"
-#include "SDL_video.h"
 
 RenderWindow::RenderWindow(const char* p_title, int p_width, int p_height)
     :window(NULL), renderer(NULL)
@@ -62,5 +60,17 @@ void RenderWindow::display()
 
 void RenderWindow::render(SDL_Texture *p_texture)
 {
-    SDL_RenderCopy(renderer, p_texture, NULL, NULL);
+    SDL_Rect src_rect;
+    src_rect.x = 0;
+    src_rect.y = 0;
+    src_rect.w = 32;
+    src_rect.h = 32;
+
+    SDL_Rect dst_rect;
+    dst_rect.x = 0;
+    dst_rect.y = 0;
+    dst_rect.w = 32;
+    dst_rect.h = 32;
+
+    SDL_RenderCopy(renderer, p_texture, &src_rect, &dst_rect);
 }
