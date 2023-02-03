@@ -28,50 +28,50 @@ set(CLANG_WARNINGS
     -Wall
     
     # Treat compiler warnings as errors
-    -Werror
+#    -Werror
 
     # reasonable and standard
-    -Wextra 
+#    -Wextra 
 
     # warn the user if a variable declaration shadows one from a
     # parent context
-    -Wshadow
+#    -Wshadow
 
     # warn the user if a class with virtual functions has a
     # non-virtual destructor. This helps catch hard to track
     # down memory errors
-    -Wnon-virtual-dtor
+ #   -Wnon-virtual-dtor
  
     # warn for c-style casts
-    -Wold-style-cast
+ #   -Wold-style-cast
 
     # warn for potential performance problem casts
-    -Wcast-align
+ #   -Wcast-align
 
     # warn on anything being unused
-    -Wunused
+#    -Wunused
 
     # warn if you overload (not override) a virtual function
-    -Woverloaded-virtual
+#    -Woverloaded-virtual
 
     # warn if non-standard C++ is used
-    -Wpedantic 
+#    -Wpedantic 
 
     # warn on type conversions that may lose data 
-    -Wconversion 
+#    -Wconversion 
 
     # warn on sign conversions
-    -Wsign-conversion 
+#    -Wsign-conversion 
 
     # warn if a null dereference is detected
-    -Wnull-dereference 
+#    -Wnull-dereference 
 
     # warn if float is implicit promoted to double
-    -Wdouble-promotion 
+#    -Wdouble-promotion 
 
     # warn on security issues around functions that format output (ie
     # printf)
-    -Wformat=2 
+#    -Wformat=2 
 )
 
 INCLUDE(FindPkgConfig)
@@ -96,7 +96,7 @@ ENDIF ()
 # user defined source files
 set ( SRC_FILES
     src/main.cpp
-    src/renderwindow.cpp
+    src/game.cpp
 )
 
 # user define libs
